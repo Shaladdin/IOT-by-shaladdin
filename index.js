@@ -1,8 +1,16 @@
 const express = require('express');
-const app = express();
+const server = express();
 
-app.listen(3000);
+// import common variable
+const {db} = require('common.js');
 
-app.get('/',(req,res)=>{
-  
-})
+// import route from routes/api
+const api = require('./routes/api')
+
+// use the route
+server.use('/api', api);
+// Make index.html as default homepage and stuff
+server.use(express.static('./public/html'));
+
+// start the server
+server.listen(3000,()=>console.log('server reloaded'));

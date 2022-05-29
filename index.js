@@ -2,7 +2,11 @@ const express = require('express');
 const server = express();
 
 // import common variable
-const {db} = require('common.js');
+const {db} = require('./common.js');
+
+// start the serverControll
+const serverControll = require('./serverControll.js');
+serverControll.init();
 
 // import route from routes/api
 const api = require('./routes/api')
